@@ -19,7 +19,7 @@ export class Hero {
 })
 export class AppComponent {
   title = "Tour of Heros";
-  hero = Hero = {
+  hero: Hero = {
     id: 1,
     name: "Iron Man"
   };
