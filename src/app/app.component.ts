@@ -27,12 +27,14 @@ const HEROES: Hero[] = [
       </li>
     </ul>
 
-    <h1>{{title}}</h1>
-    <h2>{{selectedHero.name}} details!</h2>
-    <div><label>id: </label>{{selectedHero.id}}</div>
-    <div>
-      <label>name: </label>
-      <input [(ngModel)]="selectedHero.name" placeholder="name">
+    <div *ngIf="selectedHero">
+      <h1>{{title}}</h1>
+      <h2>{{selectedHero.name}} details!</h2>
+      <div><label>id: </label>{{selectedHero.id}}</div>
+      <div>
+        <label>name: </label>
+        <input [(ngModel)]="selectedHero.name" placeholder="name">
+      </div>
     </div>
   `,
   styles: [`
@@ -89,7 +91,7 @@ export class AppComponent {
   heroes = HEROES;
 
   title = "Tour of Heros";
-  selectedHero = Hero;
+  selectedHero: Hero;
 
   onSelect(hero : Hero) : void {
     this.selectedHero = hero;
