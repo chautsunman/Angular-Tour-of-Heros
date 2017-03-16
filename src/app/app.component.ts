@@ -4,8 +4,6 @@ import { OnInit } from '@angular/core';
 import {Hero} from './hero';
 import {HeroService} from './hero.service';
 
-heroes: Hero[];
-
 @Component({
   selector: 'my-app',
   template: `
@@ -84,7 +82,7 @@ export class AppComponent implements OnInit {
   }
 
   getHeroes(): void {
-    this.heroes = this.heroService.getHeros();
+    this.heroService.getHeros().then(heroes => this.heroes = heroes);
   }
 
   onSelect(hero : Hero): void {
