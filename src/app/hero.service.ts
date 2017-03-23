@@ -46,6 +46,16 @@ export class HeroService {
         .catch(this.handleError);
   }
 
+  delete(id: number): Promise<void> {
+    const heroUrl = `${this.heroesUrl}/${id}`;
+
+    return this.http
+        .delete(heroUrl, {headers: this.headers})
+        .toPromise()
+        .then(() => null)
+        .catch(this.handleError);
+  }
+
   private handleError(error: any): Promise<any> {
     console.error(error);
     return Promise.reject(error.message || error);
